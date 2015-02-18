@@ -38,7 +38,7 @@ namespace TRDBMS.UI
 
             List<string> values = new List<string>();
             values.Add("1");
-            values.Add("Manik");
+            values.Add("John");
             values.Add("Senior Software Developer");
 
             dataAccessManager.Insert(values);
