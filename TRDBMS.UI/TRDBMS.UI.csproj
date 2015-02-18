@@ -70,6 +70,12 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TRDBMS.Implementation\TRDBMS.Implementation.csproj">
+      <Project>{6f3e4692-c5e2-4754-9c4a-cd13be51742c}</Project>
+      <Name>TRDBMS.Implementation</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

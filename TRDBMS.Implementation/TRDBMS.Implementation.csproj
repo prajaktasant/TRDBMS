@@ -35,8 +35,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constants.cs" />
+    <Compile Include="DatabaseManager.cs" />
+    <Compile Include="DatabaseUtil.cs" />
+    <Compile Include="PathUtil.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QueryManager.cs" />
+    <Compile Include="SchemaManager.cs" />
+    <Compile Include="Serializable\Table_Data.cs" />
+    <Compile Include="Serializable\Table_Schema.cs" />
+    <Compile Include="TableDataAccessManager.cs" />
+    <Compile Include="TableDefinition.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
