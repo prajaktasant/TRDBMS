@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TRDBMS.UI", "TRDBMS.UI\TRDBMS.UI.csproj", "{6CB595E2-5BB3-4D03-8BFC-B2C67831C6EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TRDBMS.Implementation", "TRDBMS.Implementation\TRDBMS.Implementation.csproj", "{6F3E4692-C5E2-4754-9C4A-CD13BE51742C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6CB595E2-5BB3-4D03-8BFC-B2C67831C6EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CB595E2-5BB3-4D03-8BFC-B2C67831C6EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CB595E2-5BB3-4D03-8BFC-B2C67831C6EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CB595E2-5BB3-4D03-8BFC-B2C67831C6EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F3E4692-C5E2-4754-9C4A-CD13BE51742C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F3E4692-C5E2-4754-9C4A-CD13BE51742C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F3E4692-C5E2-4754-9C4A-CD13BE51742C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F3E4692-C5E2-4754-9C4A-CD13BE51742C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
