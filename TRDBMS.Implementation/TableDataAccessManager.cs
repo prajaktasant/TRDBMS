@@ -177,12 +177,12 @@ namespace TRDBMS.Implementation
             get { return _tableName; }
         }
 
-        public static List<List<string>> GetJoin(string table1, string table2, List<string> commonField)
+        public static List<List<string>> GetJoin(string table1, string table2, List<string> field1, List<string> field2)
         {
             TableDataAccessManager table1DataAccessManager = new TableDataAccessManager(table1);
             TableDataAccessManager table2AccessManager = new TableDataAccessManager(table2);
-            List<List<string>> table1Records = table1DataAccessManager.ReadData(commonField, null);
-            List<List<string>> table2Records = table2AccessManager.ReadData(commonField, null);
+            List<List<string>> table1Records = table1DataAccessManager.ReadData(field1, null);
+            List<List<string>> table2Records = table2AccessManager.ReadData(field2, null);
             List<string> commonRecord = new List<string>();
 
             foreach(List<string> table1Record in table1Records)
@@ -201,11 +201,13 @@ namespace TRDBMS.Implementation
             List<List<string>> table2Tuples = new List<List<string>>();
             foreach(string record in commonRecord)
             {
-                Dictionary<string, string> fieldRecord = new Dictionary<string, string>();
-                fieldRecord.Add(commonField.ToArray()[0], record);
-                table1Tuples = table1DataAccessManager.ReadData(null, fieldRecord);
-                table2Tuples = table2AccessManager.ReadData(null, fieldRecord);
-                //table1Tuples.AddRange(table2Tuples);
+                Dictionary<string, string> field1Record = new Dictionary<string, string>();
+                field1Record.Add(field1.ToArray()[0], record);
+                table1Tuples = table1DataAccessManager.ReadData(null, field1Record);
+
+                Dictionary<string, string> field2Record = new Dictionary<string, string>();
+                field2Record.Add(field2.ToArray()[0], record);
+                table2Tuples = table2AccessManager.ReadData(null, field2Record);
 
             }
 
