@@ -6,7 +6,7 @@ using System.Text;
 namespace TRDBMS.Implementation.Serializable
 {
     [Serializable]
-    internal class Table_Schema
+    internal class Table_Schema : ISerializable
     {
         private string _tableName;
         private string _fieldName;

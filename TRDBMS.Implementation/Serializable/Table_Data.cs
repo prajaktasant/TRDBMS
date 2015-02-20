@@ -6,14 +6,14 @@ using System.Text;
 namespace TRDBMS.Implementation.Serializable
 {
     [Serializable]
-    public class Table_Data
+    public class Table_Data : ISerializable
     {
 
         private List<string> lst = new List<string>();
 
-        public List<string> Fields
+        public string [] Fields
         {
-            get { return lst; }
+            get { return lst.ToArray(); }
         }
         public Table_Data()
         { }
