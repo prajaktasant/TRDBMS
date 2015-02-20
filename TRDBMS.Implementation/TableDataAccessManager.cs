@@ -176,5 +176,48 @@ namespace TRDBMS.Implementation
         {
             get { return _tableName; }
         }
+
+        public static List<List<string>> GetJoin(string table1, string table2, List<string> commonField)
+        {
+            TableDataAccessManager table1DataAccessManager = new TableDataAccessManager(table1);
+            TableDataAccessManager table2AccessManager = new TableDataAccessManager(table2);
+            List<List<string>> table1Records = table1DataAccessManager.ReadData(commonField, null);
+            List<List<string>> table2Records = table2AccessManager.ReadData(commonField, null);
+            List<string> commonRecord = new List<string>();
+
+            foreach(List<string> table1Record in table1Records)
+            {
+                foreach(List<string> table2Record in table2Records)
+                {
+                    if(table1Record.ToArray()[0].ToLower() == table2Record.ToArray()[0].ToLower())
+                    {
+                        commonRecord.Add(table1Record.ToArray()[0].ToLower());
+                    }
+                        
+                }
+
+            }
+            List<List<string>> table1Tuples = new List<List<string>>();
+            List<List<string>> table2Tuples = new List<List<string>>();
+            foreach(string record in commonRecord)
+            {
+                Dictionary<string, string> fieldRecord = new Dictionary<string, string>();
+                fieldRecord.Add(commonField.ToArray()[0], record);
+                table1Tuples = table1DataAccessManager.ReadData(null, fieldRecord);
+                table2Tuples = table2AccessManager.ReadData(null, fieldRecord);
+                //table1Tuples.AddRange(table2Tuples);
+
+            }
+
+            foreach(List<string> table1tuple in table1Tuples)
+            {
+                foreach(List<string> table2tuple in table2Tuples)
+                {
+                    table1tuple.AddRange(table2tuple);
+                }
+            }
+
+            return table1Tuples;
+        }
     }
 }

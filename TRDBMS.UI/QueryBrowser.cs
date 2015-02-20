@@ -20,19 +20,26 @@ namespace TRDBMS.UI
         {
             //CREATE table (field type{, field type}) 
             string tableName = "Employee"; // tablename
+            string tableName2 = "Salary";
             TableDefinition employee = new TableDefinition(tableName); //Initialize the table definition with the table name and add the fields.
+            TableDefinition salary = new TableDefinition(tableName2);
 
-            //Dictionary of fields and datatype pairs defining the schema of the table
+            //Dictionary of fields and datatype pairs defining the schema of the table Employee
             employee.AddField("Id", 'I'); 
             employee.AddField("Name", 'S');
             employee.AddField("Designation", 'S');
+
+            //Dictionary of fields and datatype pairs defining the schema of the table Salary
+            salary.AddField("Id",'I');
+            salary.AddField("Amount",'I');
 
             try
             {
                 //A directory is created if does not exist, a data dictionary is created if does not exist, entry for the created table is added 
                 //and a file for the table is created in the same directory.
                 //Take a look at Constants.cs for the directory name and PathUtil.cs for the path for directory.
-                SchemaManager.CreateTable(employee); 
+                SchemaManager.CreateTable(employee);
+                SchemaManager.CreateTable(salary);
             }
             catch (Exception)
             {
@@ -40,6 +47,7 @@ namespace TRDBMS.UI
 
             //Get table definition
             TableDefinition definition = SchemaManager.GetTableDefinition("Employee");
+            TableDefinition salaryDefinition = SchemaManager.GetTableDefinition("Salary");
 
             //Insert values into table
             //INSERT INTO table (value{, value}) 
@@ -63,6 +71,26 @@ namespace TRDBMS.UI
 
             //Inserting the created record into the table
             dataAccessManager.Insert(values);
+
+            //Salary Table
+            TableDataAccessManager salaryDataAccessManager = new TableDataAccessManager("Salary");
+            List<string> values2 = new List<string>();
+            values2.Add("3");
+            values2.Add("2000");
+            salaryDataAccessManager.Insert(values2);
+
+
+            values2 = new List<string>();
+            values2.Add("1");
+            values2.Add("5000");
+            salaryDataAccessManager.Insert(values2);
+
+            //SELECT * FROM table1, table2 WHERE field1 = field2
+            List<string> commonField = new List<string>();
+            commonField.Add("Id");
+            String table1 = "Employee";
+            String table2 = "Salary";
+            List<List<string>> joinResult = TableDataAccessManager.GetJoin(table1, table2, commonField);
 
             /*ReadData takes input parameters as (List<string> fields, Dictionary<string, string> fieldConst) is a generic function for query types:
              1.SELECT * FROM table
