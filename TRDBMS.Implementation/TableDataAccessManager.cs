@@ -197,6 +197,7 @@ namespace TRDBMS.Implementation
                 }
 
             }
+            List<List<string>> joinTuples = new List<List<string>>();
             List<List<string>> table1Tuples = new List<List<string>>();
             List<List<string>> table2Tuples = new List<List<string>>();
             foreach(string record in commonRecord)
@@ -213,13 +214,18 @@ namespace TRDBMS.Implementation
 
             foreach(List<string> table1tuple in table1Tuples)
             {
+                List<string> t = table1tuple;
                 foreach(List<string> table2tuple in table2Tuples)
                 {
-                    table1tuple.AddRange(table2tuple);
+                    List<string> lst = new List<string>();
+                    lst.AddRange(t);
+                    lst.AddRange(table2tuple);
+
+                    joinTuples.Add(lst);
                 }
             }
 
-            return table1Tuples;
+            return joinTuples;
         }
     }
 }

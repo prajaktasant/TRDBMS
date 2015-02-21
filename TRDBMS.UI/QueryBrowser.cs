@@ -75,7 +75,7 @@ namespace TRDBMS.UI
             //Salary Table
             TableDataAccessManager salaryDataAccessManager = new TableDataAccessManager("Salary");
             List<string> values2 = new List<string>();
-            values2.Add("3");
+            values2.Add("2");
             values2.Add("2000");
             salaryDataAccessManager.Insert(values2);
 
@@ -108,7 +108,7 @@ namespace TRDBMS.UI
             //2.SELECT field {, field} FROM table
             //Pass fields and null as parameters to ReadData to select a list of fields from the table.
             List<string> fields = new List<string>();
-            fields.Add("Id");
+            fields.Add("EmpId");
             fields.Add("Name");
             List<List<string>> fieldList = dataAccessManager.ReadData(fields, null);
 
