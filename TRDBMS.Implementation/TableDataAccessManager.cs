@@ -191,6 +191,7 @@ namespace TRDBMS.Implementation
                 {
                     if(table1Record.ToArray()[0].ToLower() == table2Record.ToArray()[0].ToLower())
                     {
+                        if (!commonRecord.Contains(table1Record.ToArray()[0].ToLower()))
                         commonRecord.Add(table1Record.ToArray()[0].ToLower());
                     }
                         
@@ -209,21 +210,20 @@ namespace TRDBMS.Implementation
                 Dictionary<string, string> field2Record = new Dictionary<string, string>();
                 field2Record.Add(field2.ToArray()[0], record);
                 table2Tuples = table2AccessManager.ReadData(null, field2Record);
-
-            }
-
-            foreach(List<string> table1tuple in table1Tuples)
-            {
-                List<string> t = table1tuple;
-                foreach(List<string> table2tuple in table2Tuples)
+                foreach(List<string> table1tuple in table1Tuples)
                 {
-                    List<string> lst = new List<string>();
-                    lst.AddRange(t);
-                    lst.AddRange(table2tuple);
-
-                    joinTuples.Add(lst);
+                    List<string> t = table1tuple;
+                    foreach(List<string> table2tuple in table2Tuples)
+                    {
+                        List<string> lst = new List<string>();
+                        lst.AddRange(t);
+                        lst.AddRange(table2tuple);
+                        joinTuples.Add(lst);
+                    }
                 }
             }
+
+           
 
             return joinTuples;
         }
