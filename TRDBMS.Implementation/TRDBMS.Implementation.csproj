@@ -44,6 +44,10 @@
     <Compile Include="SchemaManager.cs" />
     <Compile Include="Serializable\Table_Data.cs" />
     <Compile Include="Serializable\Table_Schema.cs" />
+    <Compile Include="SqlParse\CreateData.cs" />
+    <Compile Include="SqlParse\InsertData.cs" />
+    <Compile Include="SqlParse\SelectData.cs" />
+    <Compile Include="SqlParse\SqlParse.cs" />
     <Compile Include="TableDataAccessManager.cs" />
     <Compile Include="TableDefinition.cs" />
   </ItemGroup>

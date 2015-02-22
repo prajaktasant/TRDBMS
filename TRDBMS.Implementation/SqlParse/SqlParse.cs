@@ -6,9 +6,7 @@ namespace TRDBMS.Implementation.SqlParse
 {
     class SqlParse
     {
-        class SqlParse
-        {
-            string checkSql;
+           string checkSql;
             //public SqlParse(string sql)         //construtor get the user input
             //{
             //    checkSql = sql;
@@ -93,5 +91,4 @@ namespace TRDBMS.Implementation.SqlParse
                 return true;
             }
         }
-    }
 }
