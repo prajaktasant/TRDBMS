@@ -4,6 +4,10 @@ using System.Text;
 
 namespace TRDBMS.Implementation
 {
+    /// <summary>
+    /// This class defines the table schema. It assigns the table name, field name and field types. 
+    /// This class is also used to extract the table information for table manipulations and validations.
+    /// </summary>
     public class TableDefinition
     {
         private string _name;

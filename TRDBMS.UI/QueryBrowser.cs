@@ -97,7 +97,7 @@ namespace TRDBMS.UI
 
             /*ReadData takes input parameters as (List<string> fields, Dictionary<string, string> fieldConst) is a generic function for query types:
              1.SELECT * FROM table
-             2.SELECT field {, field} FROM table
+             2.SELECT field {, field} FROM table: 
              3.SELECT * FROM table WHERE field1 = constant1, field2 = constant2,...
              4.SELECT field {, field} FROM table WHERE field1 = constant1, field2 = constant2,...*/
 

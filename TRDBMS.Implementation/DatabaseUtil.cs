@@ -5,6 +5,11 @@ using System.Text;
 
 namespace TRDBMS.Implementation
 {
+    /// <summary>
+    /// This class creates a manages the data base directory "MyDatabase". 
+    /// The directory is created in the AppData folder on the local file System if directory doesnot exist.
+    /// The Data dictionary file and files for all the table data are stored in this directory.
+    /// </summary>
     public static class DatabaseUtil
     {
         private static bool IsDatabaseDirectoryExits(string name)
