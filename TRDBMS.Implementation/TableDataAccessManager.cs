@@ -43,9 +43,9 @@ namespace TRDBMS.Implementation
             int i = 0;
 
             //Validates the datatype of the values to be inserted in the table.
-            foreach (KeyValuePair<string, char> field in _definition.Fields)
+            foreach (KeyValuePair<string, string> field in _definition.Fields)
             {
-                if (field.Value == 'I' || field.Value == 'i')   
+                if (field.Value == "INT" || field.Value == "int")   
                 {
                     try
                     {
@@ -57,7 +57,7 @@ namespace TRDBMS.Implementation
                     }
 
                 }
-                else if (field.Value == 'S' || field.Value == 's')
+                else if (field.Value == "STRING" || field.Value == "string")
                 {
                     if (string.IsNullOrEmpty(values[i++]))
                     {
@@ -104,13 +104,19 @@ namespace TRDBMS.Implementation
 
         /// <summary>
         /// ReadData takes input parameters as (List<string> fields, Dictionary<string, string> fieldConst) is a generic function for query types:
+        /// 
         /// 1.SELECT * FROM table: Accepts null as parameters to select the entire table.
+        /// 
         /// 2.SELECT field {, field} FROM table: Accepts list of fields as first parammeter and null as second parameter
         /// to ReadData to select a list of fields from the table.
+        /// 
         /// 3.SELECT * FROM table WHERE field1 = constant1, field2 = constant2,...: Accepts null as first parameter and 
         /// key value pairs of field name and constant as second parameter to ReadData to select all tuples from table satisfing the WHERE conditions.
+        /// 
         /// 4.SELECT field {, field} FROM table WHERE field1 = constant1, field2 = constant2,...: Accepts list of fields as first parameter and
         /// key value pairs of field name and constant as second parameter to ReadData function to select the tuple with the list fields from table satisfing the WHERE conditions.
+        /// 
+        /// BinaryFormatter deserializer is used to read data from table file one tuple at a time.
         /// </summary>
         /// <param name="fields"></param>
         /// <param name="fieldConst"></param>
@@ -129,7 +135,7 @@ namespace TRDBMS.Implementation
 
                     bformatter = new BinaryFormatter();
 
-                    newObj = (Table_Data)bformatter.Deserialize(stream);
+                    newObj = (Table_Data)bformatter.Deserialize(stream); //Read a tuple from a stream and deserialize it into a Table_Data type.
 
                     bool valueFound = fieldConst == null ? true : findFilters(fieldConst, newObj);
                     if (valueFound)
@@ -156,11 +162,16 @@ namespace TRDBMS.Implementation
             return retval;
         }
 
+        /// <summary>
+        /// Returns index of a field in the table.
+        /// </summary>
+        /// <param name="field"></param>
+        /// <returns></returns>
         private int getIndex(string field)
         {
             int i = 0;
 
-            foreach (KeyValuePair<string, char> fld in _definition.Fields)
+            foreach (KeyValuePair<string, string> fld in _definition.Fields)
             {
                 if (fld.Key.ToLower() == field.ToLower())
                 {

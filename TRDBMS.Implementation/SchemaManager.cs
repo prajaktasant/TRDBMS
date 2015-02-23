@@ -152,7 +152,7 @@ namespace TRDBMS.Implementation
                 //An object of type Table_Schema is created for every field name and type pair and the object is serialized to the Data dictionary file
                 //using BinaryFormatter serializer.
 
-                foreach (KeyValuePair<string, char> keyValuePair in tableDefinition.Fields)
+                foreach (KeyValuePair<string, string> keyValuePair in tableDefinition.Fields)
                 {
                     Table_Schema schema = new Table_Schema(tableDefinition.Name, keyValuePair.Key, keyValuePair.Value, path); 
                     bformatter.Serialize(stream, schema); 

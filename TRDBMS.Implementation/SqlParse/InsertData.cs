@@ -4,10 +4,10 @@ using System.Text;
 
 namespace TRDBMS.Implementation.SqlParse
 {
-    class InsertData
+    public class InsertData
     {
         public string tableName { get; set; }           //set and get tablename
-        List<string> valueList;                         //list for holding the field values
+        public List<string> valueList;                         //list for holding the field values
 
         public InsertData()
         {

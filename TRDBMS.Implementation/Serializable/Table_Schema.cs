@@ -10,7 +10,7 @@ namespace TRDBMS.Implementation.Serializable
     {
         private string _tableName;
         private string _fieldName;
-        private char _dataType;
+        private string _dataType;
         private string _tableFilePath;
 
         public string TableName
@@ -23,7 +23,7 @@ namespace TRDBMS.Implementation.Serializable
             get { return _fieldName; }
         }
 
-        public Char DataType
+        public string DataType
         {
             get { return _dataType; }
         }
@@ -37,7 +37,7 @@ namespace TRDBMS.Implementation.Serializable
         {
         }
 
-        public Table_Schema(string tableName, string fieldName, char dataType, string tableFilePath)
+        public Table_Schema(string tableName, string fieldName, string dataType, string tableFilePath)
         {
             _tableName = tableName;
             _fieldName = fieldName;
@@ -50,7 +50,7 @@ namespace TRDBMS.Implementation.Serializable
         {
             _tableName = (string)info.GetValue("_tableName", typeof(string));
             _fieldName = (string)info.GetValue("_fieldName", typeof(string));
-            _dataType = (char)info.GetValue("_dataType", typeof(char));
+            _dataType = (string)info.GetValue("_dataType", typeof(string));
             _tableFilePath = (string)info.GetValue("_tableFilePath", typeof(string));
         }
 

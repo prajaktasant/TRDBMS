@@ -4,10 +4,10 @@ using System.Text;
 
 namespace TRDBMS.Implementation.SqlParse
 {
-    class CreateData
+    public class CreateData
     {
         public string tableName { get; set; }
-        Dictionary<string, string> columeValue;
+        public Dictionary<string, string> columeValue;
 
         public CreateData()
         {

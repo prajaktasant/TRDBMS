@@ -7,7 +7,7 @@ namespace TRDBMS.Implementation
     public static class PathUtil
     {
         /// <summary>
-        /// Returnss the path of the AppData folder on the local file System.
+        /// Returns the path of the AppData folder on the local file System.
         /// </summary>
         /// <returns></returns>
         public static string GetAppDataFolder()

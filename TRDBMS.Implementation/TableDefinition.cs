@@ -11,31 +11,31 @@ namespace TRDBMS.Implementation
     public class TableDefinition
     {
         private string _name;
-        private Dictionary<string, char> _fields;
+        private Dictionary<string, string> _fields;
 
         public TableDefinition(string name)
         {
             _name = name;
-            _fields = new Dictionary<string, char>();
+            _fields = new Dictionary<string, string>();
         }
 
-        public TableDefinition(string name, Dictionary<string, char> fields)
+        public TableDefinition(string name, Dictionary<string, string> fields)
         {
             _name = name;
             _fields = fields;
         }
 
-        public void AddField(string name, char datatype)
+        public void AddField(string name, string datatype)
         {
             if (_fields == null)
             {
-                _fields = new Dictionary<string, char>();
+                _fields = new Dictionary<string, string>();
             }
 
             _fields.Add(name, datatype);
         }
 
-        public Dictionary<string, char> Fields
+        public Dictionary<string, string> Fields
         {
             get { return _fields; }
         }

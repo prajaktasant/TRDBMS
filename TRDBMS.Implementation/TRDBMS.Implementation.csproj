@@ -35,9 +35,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\CommandBase.cs" />
+    <Compile Include="Commands\CreateCommand.cs" />
+    <Compile Include="Commands\InsertCommand.cs" />
+    <Compile Include="Commands\JoinCommand.cs" />
+    <Compile Include="Commands\SelectCommand.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="DatabaseManager.cs" />
     <Compile Include="DatabaseUtil.cs" />
+    <Compile Include="ListExtentions.cs" />
     <Compile Include="PathUtil.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QueryManager.cs" />
@@ -46,6 +52,7 @@
     <Compile Include="Serializable\Table_Schema.cs" />
     <Compile Include="SqlParse\CreateData.cs" />
     <Compile Include="SqlParse\InsertData.cs" />
+    <Compile Include="SqlParse\JoinData.cs" />
     <Compile Include="SqlParse\SelectData.cs" />
     <Compile Include="SqlParse\SqlParse.cs" />
     <Compile Include="TableDataAccessManager.cs" />
