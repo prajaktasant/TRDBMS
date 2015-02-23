@@ -12,10 +12,11 @@ namespace TRDBMS.Implementation.Commands
         {
             _insertData = insertData;
         }
-        public override void ExecuteCommand()
+        public override List<List<string>> ExecuteCommand()
         {
             TableDataAccessManager dataAccessManager = new TableDataAccessManager(_insertData.tableName);
             dataAccessManager.Insert(_insertData.valueList);
+            return new List<List<string>>();
 
         }
     }
