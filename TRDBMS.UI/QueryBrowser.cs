@@ -20,11 +20,18 @@ namespace TRDBMS.UI
         private void button1_Click(object sender, EventArgs e)
         {
             string query = QueryTextBox.Text;
+            string[] sqlSplit = query.Split(new char[2] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
 
-            CommandBase cmdBase = QueryManager.GetCommand(query);
-            List<List<string>> resultList = cmdBase.ExecuteCommand();
+            foreach (string query1 in sqlSplit)
+            {
+                //Console.WriteLine(query1);
+                CommandBase cmdBase = QueryManager.GetCommand(query1);
+                List<List<string>> resultList = cmdBase.ExecuteCommand();
+            }
 
-            int i = 0;
+
+
+            //int i = 0;
             
             //CREATE table (field type{, field type}) 
             /*string tableName = "Employee"; // tablename

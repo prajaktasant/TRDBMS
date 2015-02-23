@@ -13,7 +13,7 @@ namespace TRDBMS.Implementation.Commands
             _joinData = joinData;
         }
 
-        public override void ExecuteCommand()
+        public override List<List<string>> ExecuteCommand()
         {
                   List<string> field1 = new List<string>();
                 field1.Add(_joinData.field1);
@@ -21,6 +21,7 @@ namespace TRDBMS.Implementation.Commands
                 field2.Add(_joinData.field2);
                  List<List<string>> joinResult 
                     = TableDataAccessManager.GetJoin(_joinData.tableName1,_joinData.tableName2,field1,field2);
+                 return joinResult;
         }
     }
 }
