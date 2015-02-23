@@ -13,11 +13,11 @@ namespace TRDBMS.Implementation.Commands
         {
             _selectData = selectData;
         }
-        public override void ExecuteCommand()
+        public override List<List<string>> ExecuteCommand()
         {
            
                  TableDataAccessManager tableDataAccessManager = new TableDataAccessManager(_selectData.tableName);
-                 List<List<string>> selectedDatalst = tableDataAccessManager.ReadData(_selectData.fields,_selectData.whereClauseWithConstant.Count == 0 ? null: _selectData.whereClauseWithConstant);
+                 return tableDataAccessManager.ReadData(_selectData.fields,_selectData.whereClauseWithConstant.Count == 0 ? null: _selectData.whereClauseWithConstant);
            
            
         }

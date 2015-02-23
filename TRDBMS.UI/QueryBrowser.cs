@@ -22,7 +22,7 @@ namespace TRDBMS.UI
             string query = QueryTextBox.Text;
 
             CommandBase cmdBase = QueryManager.GetCommand(query);
-            cmdBase.ExecuteCommand();
+            List<List<string>> resultList = cmdBase.ExecuteCommand();
 
             int i = 0;
             

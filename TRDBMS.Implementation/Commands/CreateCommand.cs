@@ -18,6 +18,8 @@ namespace TRDBMS.Implementation.Commands
         {
             TableDefinition table = new TableDefinition(_createData.tableName,_createData.columeValue);
             SchemaManager.CreateTable(table);
+            return new List<List<string>>();
+
         }
     }
 }
