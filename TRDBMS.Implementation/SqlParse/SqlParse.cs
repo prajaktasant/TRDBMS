@@ -157,6 +157,12 @@ namespace TRDBMS.Implementation.SqlParse
                 
 
                 }
+                else if (sqlSplit[1] == "*" && !sqlQuery.Contains("WHERE"))
+                {
+                    SelectData selectNew = new SelectData();
+                    selectNew.tableName = sqlSplit[3].Trim();
+                    return selectNew;
+                }
                 else
                 {
                     throw new InvalidOperationException();

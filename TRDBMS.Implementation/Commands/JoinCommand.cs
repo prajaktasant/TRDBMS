@@ -15,13 +15,11 @@ namespace TRDBMS.Implementation.Commands
 
         public override List<List<string>> ExecuteCommand()
         {
-                  List<string> field1 = new List<string>();
-                field1.Add(_joinData.field1);
-                List<string> field2 = new List<string>();
-                field2.Add(_joinData.field2);
-                 List<List<string>> joinResult 
-                    = TableDataAccessManager.GetJoin(_joinData.tableName1,_joinData.tableName2,field1,field2);
-                 return joinResult;
+            List<string> field1 = new List<string>();
+            field1.Add(_joinData.field1);
+            List<string> field2 = new List<string>();
+            field2.Add(_joinData.field2);
+            return TableDataAccessManager.GetJoin(_joinData.tableName1, _joinData.tableName2, field1, field2);
         }
     }
 }
