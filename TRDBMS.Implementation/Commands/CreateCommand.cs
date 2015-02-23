@@ -14,7 +14,7 @@ namespace TRDBMS.Implementation.Commands
             _createData = createData;
         }
 
-        public override void ExecuteCommand()
+        public override List<List<string>> ExecuteCommand()
         {
             TableDefinition table = new TableDefinition(_createData.tableName,_createData.columeValue);
             SchemaManager.CreateTable(table);

@@ -6,7 +6,7 @@ namespace TRDBMS.Implementation.Commands
 {
     public abstract class CommandBase
     {
-        public abstract void ExecuteCommand();
+        public abstract List<List<string>> ExecuteCommand();
      
     }
 }

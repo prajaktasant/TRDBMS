@@ -17,7 +17,7 @@ namespace TRDBMS.Implementation.Commands
         {
            
                  TableDataAccessManager tableDataAccessManager = new TableDataAccessManager(_selectData.tableName);
-                 return tableDataAccessManager.ReadData(_selectData.fields,_selectData.whereClauseWithConstant.Count == 0 ? null: _selectData.whereClauseWithConstant);
+                 return tableDataAccessManager.ReadData(_selectData.fields.Count == 0?null: _selectData.fields,_selectData.whereClauseWithConstant.Count == 0 ? null: _selectData.whereClauseWithConstant);
            
            
         }
