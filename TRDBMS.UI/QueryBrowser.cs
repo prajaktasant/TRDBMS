@@ -43,5 +43,10 @@ namespace TRDBMS.UI
             }
 
         }
+
+        private void displayGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
