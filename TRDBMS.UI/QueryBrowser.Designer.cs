@@ -37,9 +37,10 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(902, 93);
+            this.button1.Location = new System.Drawing.Point(676, 76);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(108, 90);
+            this.button1.Size = new System.Drawing.Size(81, 73);
             this.button1.TabIndex = 0;
             this.button1.Text = "Execute";
             this.button1.UseVisualStyleBackColor = true;
@@ -47,18 +48,20 @@
             // 
             // QueryTextBox
             // 
-            this.QueryTextBox.Location = new System.Drawing.Point(37, 73);
+            this.QueryTextBox.Location = new System.Drawing.Point(28, 59);
+            this.QueryTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.QueryTextBox.Multiline = true;
             this.QueryTextBox.Name = "QueryTextBox";
-            this.QueryTextBox.Size = new System.Drawing.Size(838, 140);
+            this.QueryTextBox.Size = new System.Drawing.Size(630, 114);
             this.QueryTextBox.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(46, 34);
+            this.label1.Location = new System.Drawing.Point(34, 28);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 17);
+            this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "Query";
             // 
@@ -66,21 +69,24 @@
             // 
             this.displayGridView.AllowUserToOrderColumns = true;
             this.displayGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.displayGridView.Location = new System.Drawing.Point(37, 278);
+            this.displayGridView.Location = new System.Drawing.Point(28, 226);
+            this.displayGridView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.displayGridView.Name = "displayGridView";
             this.displayGridView.RowTemplate.Height = 24;
-            this.displayGridView.Size = new System.Drawing.Size(838, 344);
+            this.displayGridView.Size = new System.Drawing.Size(628, 280);
             this.displayGridView.TabIndex = 3;
+            this.displayGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.displayGridView_CellContentClick);
             // 
             // QueryBrowser
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1050, 658);
+            this.ClientSize = new System.Drawing.Size(788, 535);
             this.Controls.Add(this.displayGridView);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.QueryTextBox);
             this.Controls.Add(this.button1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "QueryBrowser";
             this.Text = "QueryBrowser";
             ((System.ComponentModel.ISupportInitialize)(this.displayGridView)).EndInit();
