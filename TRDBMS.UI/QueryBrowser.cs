@@ -28,8 +28,6 @@ namespace TRDBMS.UI
             {
                 try
                 {
-                    if (query1 == "EXIT" || query1 == "exit")
-                        this.Close();
                     CommandBase cmdBase = QueryManager.GetCommand(query1);
                     List<List<string>> resultList = cmdBase.ExecuteCommand();
                     displayGridView.DataSource=ListExtentions.ToDataTable(resultList);
@@ -44,9 +42,5 @@ namespace TRDBMS.UI
 
         }
 
-        private void displayGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
     }
 }

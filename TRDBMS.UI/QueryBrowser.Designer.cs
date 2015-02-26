@@ -80,7 +80,6 @@
             this.displayGridView.RowTemplate.Height = 24;
             this.displayGridView.Size = new System.Drawing.Size(1002, 381);
             this.displayGridView.TabIndex = 3;
-            this.displayGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.displayGridView_CellContentClick);
             // 
             // lblErrorQuery
             // 
