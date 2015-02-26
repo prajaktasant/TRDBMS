@@ -33,7 +33,6 @@ namespace TRDBMS.Implementation.SqlParse
                         return new JoinCommand(obj as JoinData);
                     else
                         throw new InvalidOperationException();
-
                 }
                 else
                 {

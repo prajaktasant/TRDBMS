@@ -8,7 +8,6 @@ namespace TRDBMS.Implementation.Commands
     public class CreateCommand : CommandBase
     {
         CreateData _createData = null;
-
         public CreateCommand(CreateData createData)
         {
             _createData = createData;
