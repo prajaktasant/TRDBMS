@@ -16,21 +16,21 @@ namespace TRDBMS.Implementation.SqlParse
             {
                 if(checkSql.StartsWith("CREATE"))               // "create" sql statement
                 {
-                    return new CreateCommand(checkCreate(checkSql));
+                    return new CreateCommand(checkCreate(checkSql),checkSql);
 
                 }
                 else if (checkSql.StartsWith("INSERT"))         // "insert" sql statement
                 {
-                    return new InsertCommand(checkInsert(checkSql));
+                    return new InsertCommand(checkInsert(checkSql), checkSql);
 
                 }
                else if (checkSql.StartsWith("SELECT"))         // "select" sql statement
                 {
                     Object obj = checkSelect(checkSql);
                     if (obj is SelectData)
-                        return new SelectCommand(obj as SelectData);
+                        return new SelectCommand(obj as SelectData, checkSql);
                     else if (obj is JoinData)
-                        return new JoinCommand(obj as JoinData);
+                        return new JoinCommand(obj as JoinData, checkSql);
                     else
                         throw new InvalidOperationException();
                 }

@@ -8,9 +8,16 @@ namespace TRDBMS.Implementation.Commands
     class JoinCommand : CommandBase
     {
         JoinData _joinData = null;
-        public JoinCommand(JoinData joinData)
+        String _sqlQuery = null;
+        public override bool IsNonQuery { get { return false; } }
+        public JoinCommand(JoinData joinData, String sqlQuery)
         {
             _joinData = joinData;
+            _sqlQuery = sqlQuery;
+        }
+        public override string GetQuery()
+        {
+            return _sqlQuery;
         }
 
         public override List<List<string>> ExecuteCommand()

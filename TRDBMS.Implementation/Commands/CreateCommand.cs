@@ -8,11 +8,16 @@ namespace TRDBMS.Implementation.Commands
     public class CreateCommand : CommandBase
     {
         CreateData _createData = null;
-        public CreateCommand(CreateData createData)
+        String _sqlQuery = null;
+        public CreateCommand(CreateData createData, String sqlQuery)
         {
             _createData = createData;
+            _sqlQuery = sqlQuery;
         }
-
+        public override string GetQuery()
+        {
+            return _sqlQuery;
+        }
         public override List<List<string>> ExecuteCommand()
         {
             TableDefinition table = new TableDefinition(_createData.tableName,_createData.columeValue);

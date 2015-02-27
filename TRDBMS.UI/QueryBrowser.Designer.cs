@@ -31,19 +31,18 @@
             this.button1 = new System.Windows.Forms.Button();
             this.QueryTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.displayGridView = new System.Windows.Forms.DataGridView();
-            this.lblErrorQuery = new System.Windows.Forms.Label();
-            this.lblErrorText = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.displayGridView)).BeginInit();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button1.Location = new System.Drawing.Point(909, 94);
-
+            this.button1.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.button1.Location = new System.Drawing.Point(1122, 75);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(81, 73);
+            this.button1.Size = new System.Drawing.Size(113, 93);
             this.button1.TabIndex = 0;
             this.button1.Text = "Execute";
             this.button1.UseVisualStyleBackColor = false;
@@ -51,70 +50,56 @@
             // 
             // QueryTextBox
             // 
-            this.QueryTextBox.Location = new System.Drawing.Point(28, 59);
-            this.QueryTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.QueryTextBox.Location = new System.Drawing.Point(38, 50);
+            this.QueryTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.QueryTextBox.Multiline = true;
             this.QueryTextBox.Name = "QueryTextBox";
-            this.QueryTextBox.Size = new System.Drawing.Size(630, 114);
+            this.QueryTextBox.Size = new System.Drawing.Size(1067, 164);
             this.QueryTextBox.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(53, 37);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(34, 21);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(62, 24);
             this.label1.TabIndex = 2;
             this.label1.Text = "Query";
             // 
-            // displayGridView
+            // groupBox1
             // 
-            this.displayGridView.AllowUserToAddRows = false;
-            this.displayGridView.AllowUserToDeleteRows = false;
-            this.displayGridView.AllowUserToOrderColumns = true;
-            this.displayGridView.BackgroundColor = System.Drawing.SystemColors.ScrollBar;
-            this.displayGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.displayGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.displayGridView.Location = new System.Drawing.Point(37, 316);
-            this.displayGridView.Name = "displayGridView";
-            this.displayGridView.RowTemplate.Height = 24;
-            this.displayGridView.Size = new System.Drawing.Size(1002, 381);
-            this.displayGridView.TabIndex = 3;
+            this.groupBox1.Controls.Add(this.panel1);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(38, 236);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(1188, 695);
+            this.groupBox1.TabIndex = 3;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Output";
             // 
-            // lblErrorQuery
+            // panel1
             // 
-            this.lblErrorQuery.AutoSize = true;
-            this.lblErrorQuery.Location = new System.Drawing.Point(37, 231);
-            this.lblErrorQuery.Name = "lblErrorQuery";
-            this.lblErrorQuery.Size = new System.Drawing.Size(36, 17);
-            this.lblErrorQuery.TabIndex = 4;
-            this.lblErrorQuery.Text = "Test";
-            // 
-            // lblErrorText
-            // 
-            this.lblErrorText.AutoSize = true;
-            this.lblErrorText.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorText.Location = new System.Drawing.Point(40, 255);
-            this.lblErrorText.Name = "lblErrorText";
-            this.lblErrorText.Size = new System.Drawing.Size(46, 17);
-            this.lblErrorText.TabIndex = 5;
-            this.lblErrorText.Text = "label2";
+            this.panel1.AutoScroll = true;
+            this.panel1.Location = new System.Drawing.Point(16, 37);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1153, 636);
+            this.panel1.TabIndex = 0;
             // 
             // QueryBrowser
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1104, 742);
-            this.Controls.Add(this.lblErrorText);
-            this.Controls.Add(this.lblErrorQuery);
-            this.Controls.Add(this.displayGridView);
+            this.ClientSize = new System.Drawing.Size(1248, 943);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.QueryTextBox);
-            this.Controls.Add(this.button1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "QueryBrowser";
             this.Text = "QueryBrowser";
-            ((System.ComponentModel.ISupportInitialize)(this.displayGridView)).EndInit();
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -125,9 +110,8 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox QueryTextBox;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView displayGridView;
-        private System.Windows.Forms.Label lblErrorQuery;
-        private System.Windows.Forms.Label lblErrorText;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 

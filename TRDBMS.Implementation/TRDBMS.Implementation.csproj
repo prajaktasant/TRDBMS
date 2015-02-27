@@ -39,6 +39,7 @@
     <Compile Include="Commands\CreateCommand.cs" />
     <Compile Include="Commands\InsertCommand.cs" />
     <Compile Include="Commands\JoinCommand.cs" />
+    <Compile Include="Commands\NullCommand.cs" />
     <Compile Include="Commands\SelectCommand.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="DatabaseManager.cs" />

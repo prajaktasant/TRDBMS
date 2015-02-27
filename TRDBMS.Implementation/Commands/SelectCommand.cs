@@ -8,11 +8,18 @@ namespace TRDBMS.Implementation.Commands
     class SelectCommand : CommandBase
     {
         SelectData _selectData = null;
-
-        public SelectCommand(SelectData selectData)
+        String _sqlQuery = null;
+        public override bool IsNonQuery { get { return false; } }
+        public SelectCommand(SelectData selectData, String sqlQuery)
         {
             _selectData = selectData;
+            _sqlQuery = sqlQuery;
         }
+        public override string GetQuery()
+        {
+            return _sqlQuery;
+        }
+
         public override List<List<string>> ExecuteCommand()
         {
                  TableDataAccessManager tableDataAccessManager = new TableDataAccessManager(_selectData.tableName);

@@ -8,9 +8,15 @@ namespace TRDBMS.Implementation.Commands
     public class InsertCommand : CommandBase
     {
         InsertData _insertData = null;
-        public InsertCommand(InsertData insertData)
+        String _sqlQuery = null;
+        public InsertCommand(InsertData insertData, String sqlQuery)
         {
             _insertData = insertData;
+            _sqlQuery = sqlQuery;
+        }
+        public override string GetQuery()
+        {
+            return _sqlQuery;
         }
         public override List<List<string>> ExecuteCommand()
         {
