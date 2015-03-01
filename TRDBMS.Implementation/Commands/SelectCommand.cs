@@ -5,6 +5,9 @@ using TRDBMS.Implementation.SqlParse;
 
 namespace TRDBMS.Implementation.Commands
 {
+    /// <summary>
+    /// Responsible for executing all the SELECT queries excluding the SELECT query for two tables.
+    /// </summary>
     class SelectCommand : CommandBase
     {
         SelectData _selectData = null;

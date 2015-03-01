@@ -42,7 +42,6 @@
     <Compile Include="Commands\NullCommand.cs" />
     <Compile Include="Commands\SelectCommand.cs" />
     <Compile Include="Constants.cs" />
-    <Compile Include="DatabaseManager.cs" />
     <Compile Include="DatabaseUtil.cs" />
     <Compile Include="ListExtentions.cs" />
     <Compile Include="PathUtil.cs" />

@@ -5,6 +5,9 @@ using System.Text;
 
 namespace TRDBMS.Implementation.Serializable
 {
+    /// <summary>
+    /// This class is responsible for serializing and deserializing the data tuples containing table definition for the data dictionary.
+    /// </summary>
     [Serializable]
     internal class Table_Schema : ISerializable
     {

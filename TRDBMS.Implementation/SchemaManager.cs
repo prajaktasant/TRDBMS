@@ -110,7 +110,7 @@ namespace TRDBMS.Implementation
         /// <summary>
         /// Creates a file path for a new table entry in the Data Dictionary file. The file has same name as the table name.
         /// Throws exception if the file already exists else creates a file and returns the file path.
-        /// The file is stored in the same directory as that of the Data Dictionary "MyDatabase". 
+        /// The file is stored in the same directory where the Data Dictionary is stored : "MyDatabase". 
         /// </summary>
         /// <param name="tableName"></param>
         /// <returns></returns>
@@ -154,8 +154,8 @@ namespace TRDBMS.Implementation
 
                 foreach (KeyValuePair<string, string> keyValuePair in tableDefinition.Fields)
                 {
-                    Table_Schema schema = new Table_Schema(tableDefinition.Name, keyValuePair.Key, keyValuePair.Value, path); 
-                    bformatter.Serialize(stream, schema); 
+                    Table_Schema schema = new Table_Schema(tableDefinition.Name, keyValuePair.Key, keyValuePair.Value, path);
+                    bformatter.Serialize(stream, schema);
                 }
             }
 

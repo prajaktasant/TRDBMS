@@ -45,7 +45,7 @@ namespace TRDBMS.Implementation
             //Validates the datatype of the values to be inserted in the table.
             foreach (KeyValuePair<string, string> field in _definition.Fields)
             {
-                if (field.Value == "INT" || field.Value == "int")   
+                if (field.Value == "INT" || field.Value == "int")
                 {
                     try
                     {
@@ -103,9 +103,9 @@ namespace TRDBMS.Implementation
         }
 
         /// <summary>
-        /// ReadData takes input parameters as (List<string> fields, Dictionary<string, string> fieldConst) is a generic function for query types:
+        /// ReadData takes has two parameters as (List<string> fields, Dictionary<string, string> fieldConst) is a generic function for query types:
         /// 
-        /// 1.SELECT * FROM table: Accepts null as parameters to select the entire table.
+        /// 1.SELECT * FROM table: Accepts null as both the parameters to select the entire table.
         /// 
         /// 2.SELECT field {, field} FROM table: Accepts list of fields as first parammeter and null as second parameter
         /// to ReadData to select a list of fields from the table.
@@ -118,8 +118,8 @@ namespace TRDBMS.Implementation
         /// 
         /// BinaryFormatter deserializer is used to read data from table file one tuple at a time.
         /// </summary>
-        /// <param name="fields"></param>
-        /// <param name="fieldConst"></param>
+        /// <param name="fields">List of fields to select from the table</param>
+        /// <param name="fieldConst">Pair of field name and constant name satifying the where clause</param>
         /// <returns></returns>
         public List<List<string>> ReadData(List<string> fields, Dictionary<string, string> fieldConst)
         {
@@ -151,14 +151,14 @@ namespace TRDBMS.Implementation
         private bool findFilters(Dictionary<string, string> fieldConst, Table_Data newObj)
         {
             bool retval = false;
-            foreach( KeyValuePair<string,string> fld in fieldConst)
+            foreach (KeyValuePair<string, string> fld in fieldConst)
             {
                 int idx = getIndex(fld.Key);
                 retval = newObj.Fields[idx].ToLower() == fld.Value.ToLower();
                 if (retval == false)
                     break;
             }
-            
+
             return retval;
         }
 
@@ -189,31 +189,37 @@ namespace TRDBMS.Implementation
             get { return _tableName; }
         }
 
+        /// <summary>
+        /// This function is called when there are two tables involved in the SELECT query. 
+        /// e.g. SELECT * FROM table1, table2 where field1 = field2.
+        /// ReadData function is reused for table1 and table2 to get the join result.
+        /// </summary>
+        /// <returns>Resurns the result of joins</returns>
         public static List<List<string>> GetJoin(string table1, string table2, List<string> field1, List<string> field2)
         {
             TableDataAccessManager table1DataAccessManager = new TableDataAccessManager(table1);
-            TableDataAccessManager table2AccessManager = new TableDataAccessManager(table2);  
+            TableDataAccessManager table2AccessManager = new TableDataAccessManager(table2);
             List<List<string>> table1Records = table1DataAccessManager.ReadData(field1, null);
             List<List<string>> table2Records = table2AccessManager.ReadData(field2, null);
             List<string> commonRecord = new List<string>();
 
-            foreach(List<string> table1Record in table1Records)
+            foreach (List<string> table1Record in table1Records)
             {
-                foreach(List<string> table2Record in table2Records)
+                foreach (List<string> table2Record in table2Records)
                 {
-                    if(table1Record.ToArray()[0].ToLower() == table2Record.ToArray()[0].ToLower())
+                    if (table1Record.ToArray()[0].ToLower() == table2Record.ToArray()[0].ToLower())
                     {
                         if (!commonRecord.Contains(table1Record.ToArray()[0].ToLower()))
-                        commonRecord.Add(table1Record.ToArray()[0].ToLower());
+                            commonRecord.Add(table1Record.ToArray()[0].ToLower());
                     }
-                        
+
                 }
 
             }
             List<List<string>> joinTuples = new List<List<string>>();
             List<List<string>> table1Tuples = new List<List<string>>();
             List<List<string>> table2Tuples = new List<List<string>>();
-            foreach(string record in commonRecord)
+            foreach (string record in commonRecord)
             {
                 Dictionary<string, string> field1Record = new Dictionary<string, string>();
                 field1Record.Add(field1.ToArray()[0], record);
@@ -222,10 +228,10 @@ namespace TRDBMS.Implementation
                 Dictionary<string, string> field2Record = new Dictionary<string, string>();
                 field2Record.Add(field2.ToArray()[0], record);
                 table2Tuples = table2AccessManager.ReadData(null, field2Record);
-                foreach(List<string> table1tuple in table1Tuples)
+                foreach (List<string> table1tuple in table1Tuples)
                 {
                     List<string> t = table1tuple;
-                    foreach(List<string> table2tuple in table2Tuples)
+                    foreach (List<string> table2tuple in table2Tuples)
                     {
                         List<string> lst = new List<string>();
                         lst.AddRange(t);

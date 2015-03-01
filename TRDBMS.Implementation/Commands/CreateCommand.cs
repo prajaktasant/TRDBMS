@@ -5,6 +5,9 @@ using TRDBMS.Implementation.SqlParse;
 
 namespace TRDBMS.Implementation.Commands
 {
+    /// <summary>
+    /// Responsible for executing the CREATE query.
+    /// </summary>
     public class CreateCommand : CommandBase
     {
         CreateData _createData = null;
@@ -20,7 +23,7 @@ namespace TRDBMS.Implementation.Commands
         }
         public override List<List<string>> ExecuteCommand()
         {
-            TableDefinition table = new TableDefinition(_createData.tableName,_createData.columeValue);
+            TableDefinition table = new TableDefinition(_createData.tableName, _createData.columeValue);
             SchemaManager.CreateTable(table);
             return new List<List<string>>();
 

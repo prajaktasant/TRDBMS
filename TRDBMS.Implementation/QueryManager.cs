@@ -12,8 +12,8 @@ namespace TRDBMS.Implementation
 
         public static CommandBase GetCommand(String query)
         {
-        SqlParse.SqlParse sqlParse = new SqlParse.SqlParse(query);
-          return  sqlParse.Parse();
+            SqlParse.SqlParse sqlParse = new SqlParse.SqlParse(query);
+            return sqlParse.Parse();
         }
     }
 }

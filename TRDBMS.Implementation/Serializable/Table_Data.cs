@@ -5,6 +5,9 @@ using System.Text;
 
 namespace TRDBMS.Implementation.Serializable
 {
+    /// <summary>
+    /// This class is responsible for serializing and deserializing the data tuples for a table.
+    /// </summary>
     [Serializable]
     public class Table_Data : ISerializable
     {

@@ -5,6 +5,9 @@ using TRDBMS.Implementation.SqlParse;
 
 namespace TRDBMS.Implementation.Commands
 {
+    /// <summary>
+    /// Responsible for executing the SELECT command involving two table.
+    /// </summary>
     class JoinCommand : CommandBase
     {
         JoinData _joinData = null;

@@ -5,6 +5,9 @@ using TRDBMS.Implementation.SqlParse;
 
 namespace TRDBMS.Implementation.Commands
 {
+    /// <summary>
+    /// Responsible for executing the INSERT query.
+    /// </summary>
     public class InsertCommand : CommandBase
     {
         InsertData _insertData = null;

@@ -75,11 +75,13 @@ namespace TRDBMS.UI
             lblQuery.AutoSize = true;
             lblQuery.Dock = DockStyle.Top;
             lblQuery.Text = cmdBase.GetQuery();
+            lblQuery.Font = new Font("Arial",9);
             resultTable.DataSource = ListExtentions.ToDataTable(resultList);
             resultTable.AutoSize = false;
             resultTable.Dock = DockStyle.Top;
             resultTable.Height = 300;
             resultTable.Width = 630;
+            resultTable.AllowUserToAddRows = false;
             Label lblNewLine = new Label();
             lblNewLine.AutoSize = true;
             lblNewLine.Dock = DockStyle.Top;
@@ -98,6 +100,8 @@ namespace TRDBMS.UI
             else
                 lblMessage.ForeColor = System.Drawing.Color.Red;
             lblMessage.Text = message;
+            lblMessage.Font = new Font("Arial", 9);
+            lblQuery.Font = new Font("Arial", 9);
             lblQuery.Text = cmdBase.GetQuery();
             lblQuery.AutoSize = true;
             lblQuery.Dock = DockStyle.Top;

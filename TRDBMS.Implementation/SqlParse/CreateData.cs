@@ -4,10 +4,13 @@ using System.Text;
 
 namespace TRDBMS.Implementation.SqlParse
 {
+    /// <summary>
+    /// This is a Initialization Data Structure for Create Command.
+    /// </summary>
     public class CreateData
     {
-        public string tableName { get; set; }
-        public Dictionary<string, string> columeValue;
+        public string tableName { get; set; }   //set and get tablename
+        public Dictionary<string, string> columeValue;  //Dictionary to hold the pair of field name and field type.
 
         public CreateData()
         {

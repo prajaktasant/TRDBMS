@@ -7,7 +7,11 @@ namespace TRDBMS.Implementation
 {
     public static class ListExtentions
     {
-         
+         /// <summary>
+        /// Helper Function to convert a result from List<List<string>> to a Data table 
+         /// </summary>
+         /// <param name="list"></param>
+         /// <returns></returns>
             public static  DataTable ToDataTable( List<List<string>> list)
             {
                 DataTable tmp = new DataTable();
