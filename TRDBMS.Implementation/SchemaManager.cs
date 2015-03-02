@@ -75,8 +75,8 @@ namespace TRDBMS.Implementation
         /// Opens the data dictionary file from "MyDatabase" directory and reads the table definition of the specified table one tuple at a time using
         /// Binary formatter deserializer that deserializes a stream into an object graph.
         /// </summary>
-        /// <param name="tableName"></param>
-        /// <returns></returns>
+        /// <param name="tableName">Name of the table</param>
+        /// <returns>Returns the table definition object</returns>
         public TableDefinition ReadTableDefinition(string tableName)
         {
             if (!IsTableExists(tableName))
@@ -112,8 +112,8 @@ namespace TRDBMS.Implementation
         /// Throws exception if the file already exists else creates a file and returns the file path.
         /// The file is stored in the same directory where the Data Dictionary is stored : "MyDatabase". 
         /// </summary>
-        /// <param name="tableName"></param>
-        /// <returns></returns>
+        /// <param name="tableName">Name of the table</param>
+        /// <returns>Returns table file path</returns>
         private string CreateTableStore(string tableName)
         {
             string tableFilePath = Path.Combine(DatabaseUtil.GetDatabaseDirectory(), tableName);
