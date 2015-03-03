@@ -9,7 +9,6 @@ namespace TRDBMS.Implementation
 {
     public class QueryManager
     {
-
         public static CommandBase GetCommand(String query)
         {
             SqlParse.SqlParse sqlParse = new SqlParse.SqlParse(query);

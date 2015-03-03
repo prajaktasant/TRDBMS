@@ -12,6 +12,7 @@ namespace TRDBMS.Implementation.Commands
         public abstract string GetQuery();
         public virtual bool IsNonQuery { get { return true; } }
         public abstract List<List<string>> ExecuteCommand(); //Call to Execute Command of the respective child class depending on the type of Query.
-     
+        public abstract IEnumerable<string> GetFieldNames();
+       
     }
 }

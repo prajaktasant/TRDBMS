@@ -28,5 +28,19 @@ namespace TRDBMS.Implementation.Commands
                  TableDataAccessManager tableDataAccessManager = new TableDataAccessManager(_selectData.tableName);
                  return tableDataAccessManager.ReadData(_selectData.fields.Count == 0?null: _selectData.fields,_selectData.whereClauseWithConstant.Count == 0 ? null: _selectData.whereClauseWithConstant);           
         }
+
+        public override IEnumerable<string> GetFieldNames()
+        {
+            List<string> retval = new List<string>();
+            if(_selectData.fields.Count>0)
+                return _selectData.fields;
+            
+            foreach (var tmp in SchemaManager.GetTableDefinition(_selectData.tableName).Fields)
+            {
+                retval.Add(tmp.Key);
+            }
+            return retval;
+        }
+
     }
 }

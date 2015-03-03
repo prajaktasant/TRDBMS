@@ -28,5 +28,10 @@ namespace TRDBMS.Implementation.Commands
             return new List<List<string>>();
 
         }
+
+        public override IEnumerable<string> GetFieldNames()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

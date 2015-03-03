@@ -77,6 +77,8 @@ namespace TRDBMS.Implementation.SqlParse
         {
 
             string[] sqlSplit = checkSql.Split(new char[4] { ' ', '(', ',', ')' }, StringSplitOptions.RemoveEmptyEntries);
+            string[] split = checkSql.Split(new char[2]{'(',')'},StringSplitOptions.RemoveEmptyEntries);
+            string[] split1 = split[1].Split(new char[1]{','});
             InsertData insertNew = new InsertData();
             insertNew.tableName = sqlSplit[2];
             if (sqlSplit[1] != "INTO")          // INSERT MUST HAVE INTO
@@ -89,9 +91,9 @@ namespace TRDBMS.Implementation.SqlParse
                 Console.WriteLine("Invalid table name. Keyword is used");
             }
 
-            for (int i = 3; i < sqlSplit.Length; i++)
+            for (int i = 0; i < split1.Length; i++)
             {
-                insertNew.setValueList(sqlSplit[i].Replace("\"", "").Trim());   //store the insert value into list
+                insertNew.setValueList(split1[i].Replace("\"", "").Trim());   //store the insert value into list
             }
             return insertNew;
         }

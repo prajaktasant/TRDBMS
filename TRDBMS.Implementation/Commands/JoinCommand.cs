@@ -31,5 +31,18 @@ namespace TRDBMS.Implementation.Commands
             field2.Add(_joinData.field2);
             return TableDataAccessManager.GetJoin(_joinData.tableName1, _joinData.tableName2, field1, field2);
         }
+
+        public override IEnumerable<string> GetFieldNames()
+        {
+            foreach (var tmp in SchemaManager.GetTableDefinition(_joinData.tableName1).Fields)
+            {
+                yield return string.Format("{0}.{1}", _joinData.tableName1, tmp.Key)  ;
+            }
+
+            foreach (var tmp in SchemaManager.GetTableDefinition(_joinData.tableName2).Fields)
+            {
+                yield return string.Format("{0}.{1}", _joinData.tableName2, tmp.Key);
+            }
+        }
     }
 }

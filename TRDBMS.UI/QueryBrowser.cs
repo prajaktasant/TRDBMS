@@ -76,7 +76,8 @@ namespace TRDBMS.UI
             lblQuery.Dock = DockStyle.Top;
             lblQuery.Text = cmdBase.GetQuery();
             lblQuery.Font = new Font("Arial",9);
-            resultTable.DataSource = ListExtentions.ToDataTable(resultList);
+            resultTable.DataSource = ListExtentions.ToDataTable(resultList,new List<string>( cmdBase.GetFieldNames()));
+            resultTable.DataBindingComplete += resultTable_DataBindingComplete;
             resultTable.AutoSize = false;
             resultTable.Dock = DockStyle.Top;
             resultTable.Height = 300;
@@ -89,6 +90,12 @@ namespace TRDBMS.UI
             ctrls.Add(lblQuery);
             ctrls.Add(resultTable);
             ctrls.Add(lblNewLine);
+        }
+
+        void resultTable_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            ((DataGridView)sender).AutoResizeColumns();
+            ((DataGridView)sender).AutoResizeColumnHeadersHeight();
         }
 
         private void AddControls(CommandBase cmdBase, String message, StatusType type)
